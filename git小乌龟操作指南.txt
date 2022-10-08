@@ -1,0 +1,7 @@
+1. 小乌龟的汉化包版本要和小乌龟版本匹配，否则无法使用
+
+2. b站有up讲的很全面，虽然是以码云为例，但操作和github基本一致
+https://www.bilibili.com/video/BV14Y4y1z73T/?spm_id_from=333.880.my_history.page.click&vd_source=adc0e69b7ad8660993340629d13bb949
+
+3. 小乌龟如果在push到远端仓库的时候出现fail，建议用SSH方法去push，有秘钥之后不用输入用户名
+    和密码，个人猜测push失败和用户名密码有关。（具体方法看上面的视频）
