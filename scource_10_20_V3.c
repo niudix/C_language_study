@@ -11,11 +11,13 @@
 */
 # include<stdio.h>
 
-void Input(int* score,int number_of_class,int number_of_stu);
+void Input(int(*score)[10], int number_of_class);
+
 int main()
 {
-	int score[3][10] = { 89,79,96,88,68,77,92,85,76,93,74,85,84,91,86,94,75,96,74,98,85,97,85,67,89,86,91,87,83,91 };
-// 一班情况
+	//int score[3][10] = { 89,79,96,88,68,77,92,85,76,93,74,85,84,91,86,94,75,96,74,98,85,97,85,67,89,86,91,87,83,91 };
+
+	int score[3][10] = { 0 };
 	int i = 0, j = 0;
 	int max_score = 0;
 	int max_stu_ID = 0;
@@ -23,6 +25,9 @@ int main()
 	int max_total_score = 0;
 	int max_total_score_ID[2] = { 0 };
 	int max_all_total_score[2] = { 0 };
+	int number_of_class = 3;
+
+	Input(score, number_of_class);
 
 
 	for (i = 0; i < 3; i++)
@@ -59,16 +64,35 @@ int main()
 	return 0;
 }
 
-void Input(int* score, int number_of_class, int number_of_stu)
+//函数调用二维数组的时候一定要明确二维数组的列数，缺少列数会导致调用失败，可以参考下面调用方法(*a)[num];或者也可以直接传数组进去,下面这两种定义方法都可以
+// refernce https://www.jianshu.com/p/d7f2afe08f41
+	void Input(int score[][10], int number_of_class)
 {
 	int i, j;
 
 	for (i = 0 ; i < number_of_class; i++)
 	{
-		for (j = 0 ; j < number_of_stu; j++)
+		for (j = 0 ; j < 10; j++)
 		{
-			scanf("%d", &score[i][j]);
+			scanf_s("%d,", &score[i][j]);
 		}
 	}
 
 }
+
+
+/*
+void Input(int(*score)[10], int number_of_class)
+{
+	int i, j;
+
+	for (i = 0 ; i < number_of_class; i++)
+	{
+		for (j = 0 ; j < 10; j++)
+		{
+			scanf_s("%d,", &score[i][j]);
+		}
+	}
+
+}
+*/
